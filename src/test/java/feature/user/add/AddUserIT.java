@@ -6,12 +6,13 @@ import cucumber.api.junit.Cucumber;
 
 /**
  * Test header for AddUser feature.
+ *
  * @author Juho Perälä
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty", "html:target/results" }
-        , glue = { "steps" }
+        plugin = {"pretty", "html:target/results"}
+        , glue = {"steps"}
 )
 public class AddUserIT {
 }

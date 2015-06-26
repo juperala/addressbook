@@ -3,5 +3,5 @@ Feature: Add user
 
     Scenario: Add new user
         Given the system is initialized
-        When new user with firstname 'Juho' and lastname 'Perälä' is added
-        Then last user should have firstname 'Juho' and lastname 'Perälä'
+        When new user with firstname 'Teppo' and lastname 'Testaaja' is added
+        Then first user should have firstname 'Teppo'
