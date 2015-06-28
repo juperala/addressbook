@@ -1,3 +1,21 @@
+Cucumber BDD test example for Vaadin Addressbook Tutorial
+====================
+This fork provides examples of Cucumber BDD tests for the Vaading Addressbook application.
+
+Execute tests:
+$ mvn verify
+
+Implemented test features:
+- BDD tests for 3 product feature
+ - Add person to contact list
+ - Update existing person in contact list
+ - Search persons from contact list
+- Automated BDD tests
+ - Execution of integration tests and deployment of service (maven-failsafe-plugin, maven-jetty-plugin)
+ - BDD tests implemented using Cucumber framework
+ - UI testing using Selenium (access to UI encapsulated using page object pattern)
+
+
 Addressbook Tutorial
 ====================
 
