@@ -60,7 +60,7 @@ public class ContactForm extends FormLayout {
     /* Use any JVM language.
      *
      * Vaadin supports all languages supported by Java Virtual Machine 1.6+.
-     * This allows you to program user interface in Java 8, Scala, Groovy or any other
+     * This allows you to program contact interface in Java 8, Scala, Groovy or any other
      * language you choose.
      * The new languages give you very powerful tools for organizing your code
      * as you choose. For example, you can implement the listener methods in your

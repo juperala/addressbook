@@ -32,8 +32,6 @@ public class ContactService {
 
             final ContactService contactService = new ContactService();
 
-            // Juho (26.6.2015): Ignored test data, test data added from BDD tests.
-            /*
             Random r = new Random(0);
             Calendar cal = Calendar.getInstance();
             for (int i = 0; i < 100; i++) {
@@ -47,7 +45,7 @@ public class ContactService {
                         r.nextInt(11), r.nextInt(28));
                 contact.setBirthDate(cal.getTime());
                 contactService.save(contact);
-            }*/
+            }
 
             instance = contactService;
         }

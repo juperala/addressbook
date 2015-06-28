@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebServlet;
 
 /* User Interface written in Java.
  *
- * Define the user interface shown on the Vaadin generated web page by extending the UI class.
+ * Define the contact interface shown on the Vaadin generated web page by extending the UI class.
  * By default, a new UI instance is automatically created when the page is loaded. To reuse
  * the same instance, add @PreserveOnRefresh.
  */
@@ -29,7 +29,7 @@ public class AddressbookUI extends UI {
 
 
 	/* Hundreds of widgets.
-	 * Vaadin's user interface components are just Java objects that encapsulate
+	 * Vaadin's contact interface components are just Java objects that encapsulate
 	 * and handle cross-browser support and client-server communication. The
 	 * default Vaadin components are in the com.vaadin.ui package and there
 	 * are over 500 more in vaadin.com/directory.
@@ -50,7 +50,7 @@ public class AddressbookUI extends UI {
     /* The "Main method".
      *
      * This is the entry point method executed to initialize and configure
-     * the visible user interface. Executed on every browser reload because
+     * the visible contact interface. Executed on every browser reload because
      * a new instance is created for each web page loaded.
      */
     @Override
@@ -63,7 +63,7 @@ public class AddressbookUI extends UI {
     private void configureComponents() {
          /* Synchronous event handling.
          *
-         * Receive user interaction events on the server-side. This allows you
+         * Receive contact interaction events on the server-side. This allows you
          * to synchronously handle those events. Vaadin automatically sends
          * only the needed changes to the web page without loading a new page.
          */
@@ -88,7 +88,7 @@ public class AddressbookUI extends UI {
      * Layouts are components that contain other components.
      * HorizontalLayout contains TextField and Button. It is wrapped
      * with a Grid into VerticalLayout for the left side of the screen.
-     * Allow user to resize the components with a SplitPanel.
+     * Allow contact to resize the components with a SplitPanel.
      *
      * In addition to programmatically building layout in Java,
      * you may also choose to setup layout declaratively
@@ -116,7 +116,7 @@ public class AddressbookUI extends UI {
     /* Choose the design patterns you like.
      *
      * It is good practice to have separate data access methods that
-     * handle the back-end access and/or the user interface updates.
+     * handle the back-end access and/or the contact interface updates.
      * You can further split your code into classes to easier maintenance.
      * With Vaadin you can follow MVC, MVP or any other design pattern
      * you choose.

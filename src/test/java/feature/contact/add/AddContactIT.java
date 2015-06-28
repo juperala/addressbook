@@ -1,17 +1,18 @@
-package feature.user.delete;
+package feature.contact.add;
 
 import cucumber.api.CucumberOptions;
 import org.junit.runner.RunWith;
 import cucumber.api.junit.Cucumber;
 
 /**
- * Test header for DeleteUser feature.
+ * Test header for add feature.
+ *
  * @author Juho Perälä
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty", "html:target/results" }
-        , glue = { "steps" }
+        plugin = {"pretty", "html:target/results/add"}
+        , glue = {"steps"}
 )
-public class DeleteUserIT {
+public class AddContactIT {
 }
