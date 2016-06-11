@@ -13,7 +13,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <vaadin.version>7.4.3</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
-        <selenium-version>2.45.0</selenium-version>
+        <selenium-version>2.52.0</selenium-version>
         <cucumber-version>1.2.2</cucumber-version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
