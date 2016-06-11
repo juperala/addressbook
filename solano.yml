@@ -1,5 +1,6 @@
 java:
   java_version: java-8-oracle
+  maven_version: '3.2.3'
 
 firefox: '27.0.1'
   
