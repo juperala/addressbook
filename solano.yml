@@ -1,0 +1,7 @@
+java:
+  java_version: java-7-openjdk
+
+firefox: '27.0.1'
+  
+tests:
+  - mvn clean verify
