@@ -6,7 +6,11 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.MarionetteDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +30,20 @@ public class ContactSteps {
 
     @Before
     public void beforeScenario() {
-        page = PageFactory.initElements(new FirefoxDriver(), AddressBookPage.class);
+        WebDriver driver;
+        String browser = System.getProperty("browser", "firefox");
+        switch(browser.toLowerCase()) {
+            case "chrome":
+                driver = new ChromeDriver();
+                break;
+            case "marionette":
+                driver = new MarionetteDriver();
+                break;
+            case "firefox":
+            default:
+                driver = new FirefoxDriver();
+        }
+        page = PageFactory.initElements(driver, AddressBookPage.class);
     }
 
     @After
@@ -103,19 +120,19 @@ public class ContactSteps {
     }
 
     @Then("^number of contacts is (\\d+)$")
-    public void verifyContactCount(final int count) {
+    public void verifyContactCount(final int count) throws InterruptedException {
         LOG.debug("Verifying contacts count, expected {}.", count);
         Assert.assertEquals("Contact count mismatch.", count, page.getContactCount());
     }
 
     @Then("^person with firstname '(.+)' and lastname '(.+)' exist in contacts$")
-    public void verifyContactExists(final String firstName, final String lastName) {
+    public void verifyContactExists(final String firstName, final String lastName) throws InterruptedException {
         LOG.debug("Verifying person {} {} present in the contacts", firstName, lastName);
         Assert.assertTrue("Person not found in contacts.", page.isContactPresent(firstName, lastName));
     }
 
     @Then("^person with firstname '(.+)' and lastname '(.+)' does not exist in contacts$")
-    public void verifyContactDoesNotExist(final String firstName, final String lastName) {
+    public void verifyContactDoesNotExist(final String firstName, final String lastName) throws InterruptedException {
         LOG.debug("Verifying person {} {} not present in the contacts", firstName, lastName);
         Assert.assertFalse("Person was found in contacts.", page.isContactPresent(firstName, lastName));
     }

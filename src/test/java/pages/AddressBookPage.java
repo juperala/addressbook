@@ -59,6 +59,15 @@ public class AddressBookPage {
     @FindBy(css = ".v-grid-tablewrapper > table > thead > tr:first-child > th:first-child")
     private WebElement orderByFirstName;
 
+    @FindBy(className = "v-datefield-button")
+    private WebElement dateButton;
+
+    @FindBy(className = "v-datefield-calendarpanel-day-selected")
+    private WebElement dateToday;
+
+
+
+
     public AddressBookPage(WebDriver driver) {
         this.driver = driver;
         driver.manage().timeouts().implicitlyWait(WAIT_SECS, TimeUnit.SECONDS);
@@ -84,12 +93,16 @@ public class AddressBookPage {
         newButton.click();
         fNameField.sendKeys(fName);
         lNameField.sendKeys(lName);
-        // TODO: fixed for example
+        // TODO: fixed value for example
         phoneField.sendKeys("+123-123-1231234");
-        // TODO: fixed for example
+        // TODO: fixed value for example
         emailField.sendKeys(fName + "." + lName + "@test.ts");
-        // TODO: fixed for example
-        birthdayField.sendKeys("1/1/15");
+        // TODO: fixed value for example
+        // alternatively either set the date as string or pick from date chooser
+        //birthdayField.sendKeys("1/1/15");
+        dateButton.click();
+        dateToday.click();
+
         if (cancelOperation) {
             cancelButton.click();
         } else {
@@ -100,11 +113,6 @@ public class AddressBookPage {
 
     public AddressBookPage searchContacts(String searchTerm) {
         searchField.sendKeys(searchTerm);
-        // TODO: Implement explicit wait to check when search Javascript done
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-        }
         return this;
     }
 
@@ -144,7 +152,10 @@ public class AddressBookPage {
         return this;
     }
 
-    public boolean isContactPresent(String firstName, String lastName) {
+    public boolean isContactPresent(String firstName, String lastName) throws InterruptedException {
+        // TODO: Replace with explicit wait
+        TimeUnit.SECONDS.sleep(2);
+
         List<WebElement> contacts = driver.findElements(By.cssSelector(".v-grid-tablewrapper > table > tbody > tr"));
         Iterator<WebElement> iter = contacts.iterator();
 
@@ -161,7 +172,10 @@ public class AddressBookPage {
         return false;
     }
 
-    public int getContactCount() {
+    public int getContactCount() throws InterruptedException {
+        // TODO: Replace with explicit wait
+        TimeUnit.SECONDS.sleep(2);
+
         return driver.findElements(By.cssSelector(".v-grid-tablewrapper > table > tbody > tr")).size();
     }
 }
